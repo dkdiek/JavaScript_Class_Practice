@@ -1,30 +1,31 @@
-const coronaCases = [
-  { name: "Seoul", case: 1000 },
-  { name: "Daejeon", case: 1200 },
-  { name: "Daegu", case: 1400 },
-  { name: "Busan", case: 1500 },
-  { name: "Gwangju", case: 1100 },
-];
+// function Song(singer, title, release) {
+//   this.singer = singer;
+//   this.title = title;
+//   this.release = new Date(release);
+//   this.getReleaseDay = function () {
+//     return this.release.getDay();
+//   };
+//   this.getInfo = function () {
+//     return `이노래는 ${this.singer}의 노래이고 제목은 ${this.title}입니다.`;
+//   };
+//   console.log(this);
+// }
 
-//forEach, map, filter, reduce
-//foreach(index도 출력가능)
-coronaCases.forEach((corona, index) => {
-  console.log(corona, index);
-});
-//map - 배열을 가공하여 새로운 형태의 배열을 만들때
-//name만으로 새로운 배열
-const coronaCities = coronaCases.map((corona) => {
-  return corona.name;
-});
-//filter - 배열에서 특정한 값을 가진 데이터를 필터링
-const dangerousCity = coronaCases.filter(function (corona, index) {
-  return corona.case > 1200; //조건에 맞는 데이터만 출력
-});
-console.log(dangerousCity);
+//es6 클래스
+class Song {
+  constructor(singer, title, release) {
+    this.singer = singer;
+    this.title = title;
+    this.release = new Date(release);
+  }
+  getReleaseDay() {
+    return this.release.getDay();
+  }
+}
 
-//reduce - 배열 값들을 합치거나 더한 새로운 값으로 재가공 할때
-//처음에 object가 들어가는 게 싫다면,0으로 기본 값 저장
-const totalCases = coronaCases.reduce((acc, cur) => {
-  return acc + cur.case;
-}, 0);
-console.log(totalCases);
+// 인스턴스화 new
+const song1 = new Song("bts", "dna", "2018-09-18");
+const song2 = new Song("eminem", "loveyourself", "2020-03-18");
+
+console.log(song1, song2);
+console.log(song1.getReleaseDay());
