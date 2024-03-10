@@ -9,6 +9,9 @@ if (num < 10) {
   console.log("작다");
 }
 
+//3항연산자 조건?참 실행:거짓 실행;
+num > 10 ? true : false;
+
 //스위치 케이스문
 const animal = "lion";
 switch (animal) {
